@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "outDir": "build/dist", //指定的目录下的文件永远会被编译器排除
+    "module": "esnext",
+    "strict": true, // 以严格模式解析
+    "target": "es5", //输出指定ECMAScirpt目标版本
+    "lib": ["es6", "dom"], //编译过程中需要引入的库文件的列表。
+    "sourceMap": true, //是否生成map文件用于调试
+    "allowJs": true, //允许编译js文件 
+    "jsx": "react",
+    "moduleResolution": "node", // 如何处理模块
+    "rootDir": "src", //仅用来控制输出的目录结构
+    "forceConsistentCasingInFileNames": true, //禁止对同一个文件的不一致的引用
+    "noImplicitReturns": true, //不是函数的所有返回路径都有返回值时报错
+    "noImplicitThis": true, //当this表达式的值为any类型的时候，生成一个错误。
+    "noImplicitAny": false, //在表达式和声明上有隐含的any类型时报错
+    "strictNullChecks": true, //在严格的 null检查模式下， null和 undefined值不包含在任何类型里，只允许用它们自己和 any来赋值
+    "suppressImplicitAnyIndexErrors": false, //阻止 --noImplicitAny对缺少索引签名的索引对象报错。
+    "noUnusedLocals": true //若有未使用的局部变量则抛错。
+  },
+  "exclude": [
+    "node_modules",
+    "build",
+    "scripts",
+    "acceptance-tests",
+    "webpack",
+    "jest",
+    "src/setupTests.ts"
+  ]
+}
