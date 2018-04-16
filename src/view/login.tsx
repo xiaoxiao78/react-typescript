@@ -10,6 +10,7 @@ import * as React from 'react';
 import { Form, Input, Button, Checkbox, Icon } from 'antd';
 import { WrappedFormUtils } from 'antd/lib/form/Form';
 import styled from 'styled-components';
+import axios from 'axios';
 const FormItem = Form.Item;
 // style
 const LoginBox = styled.div`
@@ -55,11 +56,10 @@ class HtLogin extends React.Component<Props, State> {
         });
     }
     handleSubmit = (event: any) => {
-        this.props.form.validateFields ( ( err: boolean, values: string ) => {
-            if ( !err ) {
-                console.log ( 'Received values of form: ', values);
-            }
-        });
+        axios.get(`/api/getName`)
+            .then(res => {
+                console.log(res);
+            });
     }
     render() {
         console.log(this.props.form);
@@ -68,7 +68,7 @@ class HtLogin extends React.Component<Props, State> {
             <LoginBox>
                 <Img src="/images/branding/googlelogo/2x/googlelogo_color_120x44dp.png" />
                 <LoginForm>
-                    <Form style={{maxWidth: '300px'}} onSubmit={this.handleSubmit}>
+                    <Form style={{maxWidth: '300px'}}>
                         <FormItem>
                             {getFieldDecorator('userName', {
                                 rules: [{ required: true, message: 'Please input your username!' }],
@@ -105,6 +105,7 @@ class HtLogin extends React.Component<Props, State> {
                                 htmlType="submit" 
                                 className="login-form-button" 
                                 style={{width: '100%'}}
+                                onClick={this.handleSubmit}
                             >
                                 登录
                             </Button>
@@ -116,6 +117,5 @@ class HtLogin extends React.Component<Props, State> {
         );
     }
 }
-
 const WrappedNormalLoginForm = Form.create<Props>()(HtLogin);
 export default WrappedNormalLoginForm;

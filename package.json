@@ -1,10 +1,14 @@
 {
-  "name": "react-typescript",
+  "name": "ceshi",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "antd": "^3.4.1",
+    "axios": "^0.18.0",
+    "mockjs": "^1.0.1-beta3",
+    "prop-types": "^15.6.1",
     "react": "^16.3.1",
+    "react-axios": "^2.0.0",
     "react-dom": "^16.3.1",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
@@ -23,5 +27,10 @@
     "@types/react": "^16.3.6",
     "@types/react-dom": "^16.0.4",
     "typescript": "^2.8.1"
-  }
+  },
+  "description": "ceshi",
+  "main": "index.js",
+  "repository": "https://github.com/xiaoxiao78/react-typescript.git",
+  "author": "huangxiaoxiao <ljyxiaoxiao@gmail.com>",
+  "license": "MIT"
 }
