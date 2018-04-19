@@ -56,7 +56,7 @@ class HtLogin extends React.Component<Props, State> {
         });
     }
     handleSubmit = (event: any) => {
-        axios.get(`/api/getName`)
+        axios.get('/user')
             .then(res => {
                 console.log(res);
             });
