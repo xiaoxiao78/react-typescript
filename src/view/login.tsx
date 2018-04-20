@@ -35,17 +35,19 @@ interface Props {
     form: WrappedFormUtils;
     login?: number;
     value?: string;
+    fildsValue?: object;
 }
 interface State {
     value: string;
     login?: number;
+    fildsValue?: object;
 }
 class HtLogin extends React.Component<Props, State> {
     constructor (props: any) {
         super(props);
         this.state = {
             login: 1,
-            value: ''
+            value: '',
         };
    }
     handleInputChange = (event: any) => {
@@ -56,13 +58,23 @@ class HtLogin extends React.Component<Props, State> {
         });
     }
     handleSubmit = (event: any) => {
-        axios.get('/user')
-            .then(res => {
-                console.log(res);
-            });
+        this.props.form.validateFields((err, values) => {
+            if (!err) {
+              axios({
+                url: '/user',
+                method: 'get',
+                params: {
+                    userName: values.userName,
+                    password: values.userPassWord,
+                }
+            })
+                .then(res => {
+                    console.log(res);
+                });
+            }
+        });
     }
     render() {
-        console.log(this.props.form);
         const { getFieldDecorator } = this.props.form;
         return(
             <LoginBox>

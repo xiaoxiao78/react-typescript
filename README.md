@@ -18,7 +18,7 @@ You can find the most recent version of this guide [here](https://github.com/fac
 - [Displaying Lint Output in the Editor](#displaying-lint-output-in-the-editor)
 - [Debugging in the Editor](#debugging-in-the-editor)
 - [Formatting Code Automatically](#formatting-code-automatically)
-- [Changing the Page `<title>`](#changing-the-page-title)
+- [Changing the Page `<title>`](#changing-the-page-title) 
 - [Installing a Dependency](#installing-a-dependency)
 - [Importing a Component](#importing-a-component)
 - [Code Splitting](#code-splitting)
@@ -2187,5 +2187,6 @@ To resolve this:
 ## Something Missing?
 
 If you have ideas for more “How To” recipes that should be on this page, [let us know](https://github.com/facebookincubator/create-react-app/issues) or [contribute some!](https://github.com/facebookincubator/create-react-app/edit/master/packages/react-scripts/template/README.md)
-#   r e a c t - t y p e s c r i p t  
+#   r e a c t - t y p e s c r i p t 
+ 
  
