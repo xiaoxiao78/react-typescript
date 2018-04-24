@@ -2,12 +2,12 @@
  * @author xiaoxiao78
  * @email 951402661@qq.com
  * @create date 2018-04-012 12:02:51
- * @modify date 2018-04-012 12:02:51
+ * @modify date 2018-04-24 14:02:51
  * @desc '登录' 页面
 */
 
 import * as React from 'react';
-import { Form, Input, Button, Checkbox, Icon } from 'antd';
+import { Form, Input, Button, Checkbox, Icon, Modal } from 'antd';
 import { WrappedFormUtils } from 'antd/lib/form/Form';
 import styled from 'styled-components';
 import axios from 'axios';
@@ -36,11 +36,15 @@ interface Props {
     login?: number;
     value?: string;
     fildsValue?: object;
+    visible?: boolean;
+    txt?: string;
 }
 interface State {
     value: string;
     login?: number;
     fildsValue?: object;
+    visible?: boolean;
+    txt?: string;
 }
 class HtLogin extends React.Component<Props, State> {
     constructor (props: any) {
@@ -48,6 +52,8 @@ class HtLogin extends React.Component<Props, State> {
         this.state = {
             login: 1,
             value: '',
+            visible: false,
+            txt: '',
         };
    }
     handleInputChange = (event: any) => {
@@ -68,11 +74,24 @@ class HtLogin extends React.Component<Props, State> {
                     password: values.userPassWord,
                 }
             })
-                .then(res => {
+                .then( (res: any) => {
                     console.log(res);
+                    const msg = res.data.msg;
+                    console.log(msg);
+                    this.setState({
+                        visible: true,
+                        txt: msg
+                    });
+                    this.modal();
                 });
             }
         });
+    }
+    modal = () => {
+        Modal.error({
+            title: this.state.txt,
+            content: (<div>'返回什么信息提示什么信息'</div>),
+        }); 
     }
     render() {
         const { getFieldDecorator } = this.props.form;

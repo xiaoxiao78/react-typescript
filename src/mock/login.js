@@ -27,21 +27,23 @@ const data =[
  export default{
      isLogin: config =>{
         const data2 =  config.url;
-        const {userName,userPassWord} = parmObj(data2);
+        const {userName,password} = parmObj(data2);
         const len = data.length;
-        let msg =()=>{
-           var i =0;
-           for( i;i<len;i++){
-            if(userName == data[i].userName){
-                alert("你好")
-                if(userPassWord !== data[i].passWord){
-                   alert( "登录密码不对");
+        let msg=()=>{
+            let message=''; 
+            for(let i =0;i<len;i++){
+                if(data[i].userName == userName){
+                    if(data[i].passWord !== password){
+                        message ='登录密码错误，请重新登录';
+                        break;
+                    }
+                }else{
+                    message='用户名不存在，请先注册'
                 }
-            }else{
-                return '用户名不存在'
-            }
         }
-     }
-     return {msg:msg(),ceshi:"abc"}   
+        return message;
+        
+    }
+     return {msg: msg(),ceshi:"abc"}   
     }
  }
