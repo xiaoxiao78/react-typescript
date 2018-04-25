@@ -9,8 +9,10 @@
 import * as React from 'react';
 import { Form, Input, Button, Checkbox, Icon, Modal } from 'antd';
 import { WrappedFormUtils } from 'antd/lib/form/Form';
+import {Router, Route} from 'react-router';
 import styled from 'styled-components';
 import axios from 'axios';
+import RegistrationForm from './register'
 const FormItem = Form.Item;
 // style
 const LoginBox = styled.div`
@@ -47,7 +49,7 @@ interface State {
     txt?: string;
 }
 class HtLogin extends React.Component<Props, State> {
-    constructor (props: any) {
+    constructor (props: Props) {
         super(props);
         this.state = {
             login: 1,
@@ -140,7 +142,12 @@ class HtLogin extends React.Component<Props, State> {
                             >
                                 登录
                             </Button>
-                            还没有注册? <a href="javascript:void(0)">赶紧来注册</a>
+                            还没有注册? 
+                            <Router>
+                                <Route path='/register' component={RegistrationForm}>
+                                    <a href="javascript:void(0)">赶紧来注册</a>
+                                </Route>
+                            </Router>
                         </FormItem>
                     </Form>
                 </LoginForm>
